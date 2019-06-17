@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 
 public class CityBaseTest extends FrontEndBase {
 
-    Logger log = LoggerFactory.getLogger(CityBaseTest.class);
+    private Logger log = LoggerFactory.getLogger(CityBaseTest.class);
 
     @Test
     public void validateThatPageIsLoadedUnder15Seconds(){
