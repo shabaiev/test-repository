@@ -8,9 +8,9 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CityBaseTest extends FrontEndBase {
+public class PerformanceTest extends FrontEndBase {
 
-    private Logger log = LoggerFactory.getLogger(CityBaseTest.class);
+    private Logger log = LoggerFactory.getLogger(PerformanceTest.class);
 
     @Test
     public void validateThatPageIsLoadedUnder15Seconds(){
@@ -22,10 +22,4 @@ public class CityBaseTest extends FrontEndBase {
         Assertions.assertThat(secondsTakenToLoadThePage).isLessThan(15);
     }
 
-
-    @Test
-    public void scrollDownToTheEndOfThePage() {
-        MainPage.goTo();
-        Driver.js().executeScript("window.scrollTo(0, document.body.scrollHeight)");
-    }
 }
