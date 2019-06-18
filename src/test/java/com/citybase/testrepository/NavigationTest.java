@@ -9,6 +9,8 @@ public class NavigationTest extends FrontEndBase {
     @Test
     public void scrollDownToTheEndOfThePage() {
         MainPage.goTo();
+        MainPage.acceptCookies();
         Driver.js().executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
+
 }
