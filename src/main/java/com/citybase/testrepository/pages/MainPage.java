@@ -33,6 +33,10 @@ public class MainPage {
         }else{
             log.error("Accept button doesn't exist");
         }
-
     }
+        public static void ClickOnGetInTouch() {
+            Driver.driver().findElement(By.xpath("//a[(contains(text(), 'Get in Touch'))]"));
+
+        }
 }
+

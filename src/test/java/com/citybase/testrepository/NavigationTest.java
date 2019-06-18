@@ -13,4 +13,11 @@ public class NavigationTest extends FrontEndBase {
         Driver.js().executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
+
+    @Test
+    public void VerifyThatContactPageOpenWhenClicksOnStayInTouchButton() {
+        MainPage.ClickOnGetInTouch();
+
+    }
+
 }
