@@ -1,5 +1,6 @@
 package com.citybase.testrepository;
 
+import com.citybase.testrepository.config.Driver;
 import com.citybase.testrepository.pages.MainPage;
 import com.citybase.testrepository.utils.Timer;
 import org.assertj.core.api.Assertions;
@@ -19,5 +20,12 @@ public class CityBaseTest extends FrontEndBase {
         long secondsTakenToLoadThePage = Timer.getTimeInSeconds();
         log.info("Page loaded in: " + secondsTakenToLoadThePage + " seconds!");
         Assertions.assertThat(secondsTakenToLoadThePage).isLessThan(15);
+    }
+
+
+    @Test
+    public void scrollDownToTheEndOfThePage() {
+        MainPage.goTo();
+        Driver.js().executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 }

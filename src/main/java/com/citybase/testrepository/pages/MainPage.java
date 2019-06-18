@@ -7,6 +7,6 @@ public class MainPage {
     static private String webSiteMainPage = "http://thecitybase.com";
 
     public static void goTo(){
-        Driver.get().navigate().to(webSiteMainPage);
+        Driver.driver().navigate().to(webSiteMainPage);
     }
 }
