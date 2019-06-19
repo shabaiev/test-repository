@@ -39,6 +39,13 @@ public class ContactPerson {
     }
 
     public ContactPerson(Builder builder) {
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.jobTitle = builder.jobTitle;
+        this.company = builder.company;
+        this.email = builder.company;
+        this.city = builder.city;
+        this.phoneNumber = builder.phoneNumber;
 
     }
 
