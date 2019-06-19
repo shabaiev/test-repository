@@ -4,6 +4,7 @@ import com.citybase.testrepository.config.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,9 +35,12 @@ public class MainPage {
             log.error("Accept button doesn't exist");
         }
     }
-        public static void ClickOnGetInTouch() {
-            Driver.driver().findElement(By.xpath("//a[(contains(text(), 'Get in Touch'))]"));
+        public static void clickOnGetInTouch() {
+            Driver.driver().findElement(By.xpath("//*[contains(text(),'Get In Touch')]")).click();
 
         }
+
+
 }
+
 
