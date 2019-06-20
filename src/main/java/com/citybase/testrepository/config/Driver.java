@@ -16,8 +16,11 @@ public class Driver {
         System.setProperty(
                 "webdriver.chrome.driver",
                 webDriver.getAbsolutePath());
+                //driver().manage().window().maximize();
         driver = new ChromeDriver();
         js = (JavascriptExecutor)driver;
+
+        driver().manage().window().maximize();
     }
 
     public static WebDriver driver(){

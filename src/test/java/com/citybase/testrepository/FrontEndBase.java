@@ -1,10 +1,13 @@
 package com.citybase.testrepository;
 
 import com.citybase.testrepository.config.Driver;
+import com.github.javafaker.Faker;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
 public class FrontEndBase {
+
+    protected Faker faker = new Faker();
 
     @BeforeClass
     public static void setup() {
