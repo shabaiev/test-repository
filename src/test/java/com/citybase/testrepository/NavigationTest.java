@@ -5,6 +5,11 @@ import com.citybase.testrepository.model.ContactPerson;
 import com.citybase.testrepository.pages.ContactPage;
 import com.citybase.testrepository.pages.MainPage;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+import java.util.List;
 
 public class NavigationTest extends FrontEndBase {
 
@@ -27,14 +32,7 @@ public class NavigationTest extends FrontEndBase {
 
     @Test
     public void verifyThatDataWasEnteredOnAContactPage() {
-      /*  String firstName = faker.name().firstName();
-        String lastName = faker.name().lastName();
-        String jobTitle = faker.name().title();
-        String companyName = faker.company().logo();
-        String email = faker.funnyName().name() + "@gmail.com";
-        String phoneNumber = faker.phoneNumber().phoneNumber();
-        String city = faker.country().capital();
-*/
+
         ContactPerson contactPerson = new ContactPerson.Builder()
                 .firstName(faker.name().firstName())
                 .lastName(faker.name().lastName())
@@ -53,4 +51,31 @@ public class NavigationTest extends FrontEndBase {
         MainPage.clickOnGetInTouch();
         ContactPage.enterData(contactPerson);
     }
-}
+
+    @Test
+    public void verifyThatUserCanSelectValueFromDropDown() {
+        MainPage.goTo();
+        MainPage.acceptCookies();
+        Actions actions = new Actions(Driver.driver());
+        actions.moveToElement(Driver.driver().findElement(By.xpath("//*[@id=\"menu-citybase-main-nav\"]//*[contains(text(), 'About Us')]"))).build().perform();
+        List<WebElement> list = Driver.driver().findElements(By.xpath("//*[@id=\\\"menu-citybase-main-nav\\\"]//*[contains(text(), 'About Us')]//ancestor::li[1]//ul/li"));
+        WebElement cityBase = getElementThatContainsText(list, "CityBlog");
+        if (cityBase != null) {
+            System.out.println(cityBase.getText());
+        } else {
+            System.out.println("ELement is null :(");
+        }
+
+
+        public WebElement getElementThatContainsText (List < WebElement > list, String desiredText){
+            for (WebElement webElement : list) {
+                if (webElement.getText().contains(desiredText)) {
+                    System.out.println("Found element that contains: " + desiredText + " Full text: " + webElement.getText());
+                    return webElement;
+                } else {
+                    System.out.println("Skipping: " + webElement.getText());
+                }
+            }
+            return null;
+        }
+
