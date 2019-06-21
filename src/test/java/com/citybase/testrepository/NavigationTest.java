@@ -65,17 +65,17 @@ public class NavigationTest extends FrontEndBase {
         } else {
             System.out.println("ELement is null :(");
         }
+    }
 
-
-        public WebElement getElementThatContainsText (List < WebElement > list, String desiredText){
-            for (WebElement webElement : list) {
-                if (webElement.getText().contains(desiredText)) {
-                    System.out.println("Found element that contains: " + desiredText + " Full text: " + webElement.getText());
-                    return webElement;
-                } else {
-                    System.out.println("Skipping: " + webElement.getText());
-                }
+    public WebElement getElementThatContainsText (List < WebElement > list, String desiredText){
+        for (WebElement webElement : list) {
+            if (webElement.getText().contains(desiredText)) {
+                System.out.println("Found element that contains: " + desiredText + " Full text: " + webElement.getText());
+                return webElement;
+            } else {
+                System.out.println("Skipping: " + webElement.getText());
             }
-            return null;
         }
-
+        return null;
+    }
+}
